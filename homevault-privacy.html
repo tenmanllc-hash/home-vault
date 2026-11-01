@@ -1,0 +1,458 @@
+<title>HomeVault Privacy Policy</title>
+<style>
+  :root {
+    --ground: #f6f7f9;
+    --surface: #ffffff;
+    --ink: #16191f;
+    --ink-soft: #4a515e;
+    --ink-faint: #7c8494;
+    --rule: #dfe3ea;
+    --rule-soft: #ebeef3;
+    --accent: #8a6321;
+    --accent-soft: #f2ead9;
+    --steel: #33445e;
+    --shadow: 0 1px 2px rgba(22, 25, 31, .05), 0 8px 24px -16px rgba(22, 25, 31, .25);
+
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #101318;
+      --surface: #171b22;
+      --ink: #e7eaf0;
+      --ink-soft: #a8b0be;
+      --ink-faint: #79818f;
+      --rule: #2a3039;
+      --rule-soft: #21262e;
+      --accent: #d0a154;
+      --accent-soft: #2b2415;
+      --steel: #9db2d4;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .8);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #101318;
+    --surface: #171b22;
+    --ink: #e7eaf0;
+    --ink-soft: #a8b0be;
+    --ink-faint: #79818f;
+    --rule: #2a3039;
+    --rule-soft: #21262e;
+    --accent: #d0a154;
+    --accent-soft: #2b2415;
+    --steel: #9db2d4;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .8);
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 45rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 6vw, 4.5rem) clamp(1.1rem, 5vw, 2rem) 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+  }
+
+  /* ── masthead ───────────────────────────────── */
+  .masthead { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.1rem, 6vw, 3rem);
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -.015em;
+    text-wrap: balance;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem 1.6rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: .78rem;
+    color: var(--ink-faint);
+  }
+  .meta b { color: var(--ink-soft); font-weight: 500; }
+
+  /* ── standfirst ─────────────────────────────── */
+  .standfirst {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    padding: clamp(1.25rem, 4vw, 1.85rem);
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+  }
+  .standfirst p { font-size: 1.02rem; color: var(--ink-soft); }
+  .standfirst p:first-of-type {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .standfirst strong { color: var(--ink); font-weight: 600; }
+
+  .claims {
+    list-style: none;
+    display: grid;
+    gap: .5rem;
+    margin-top: .35rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .claims li {
+    display: grid;
+    grid-template-columns: 1.35rem 1fr;
+    align-items: baseline;
+    gap: .55rem;
+    font-size: .93rem;
+    color: var(--ink-soft);
+  }
+  .claims li::before {
+    content: "—";
+    font-family: var(--mono);
+    color: var(--accent);
+  }
+
+  /* ── sections ───────────────────────────────── */
+  section { display: flex; flex-direction: column; gap: .85rem; }
+
+  h2 {
+    display: grid;
+    grid-template-columns: 2.4rem 1fr;
+    align-items: baseline;
+    gap: .5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--serif);
+    font-size: 1.42rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -.01em;
+    text-wrap: balance;
+  }
+  h2 .num {
+    font-family: var(--mono);
+    font-size: .78rem;
+    font-weight: 500;
+    letter-spacing: .04em;
+    color: var(--accent);
+    transform: translateY(-.15em);
+  }
+
+  h3 {
+    font-family: var(--sans);
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-top: .85rem;
+  }
+
+  p { color: var(--ink-soft); }
+  section > p, section > ul, section > .callout, section > .scroll { margin-left: 2.9rem; }
+  @media (max-width: 34rem) {
+    h2 { grid-template-columns: 1fr; gap: .1rem; }
+    h2 .num { transform: none; }
+    section > p, section > ul, section > .callout, section > .scroll { margin-left: 0; }
+  }
+
+  strong { color: var(--ink); font-weight: 600; }
+  em { font-style: italic; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .18em;
+  }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ul.body-list { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+  ul.body-list li {
+    position: relative;
+    padding-left: 1.4rem;
+    color: var(--ink-soft);
+  }
+  ul.body-list li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: var(--mono);
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .callout {
+    background: var(--accent-soft);
+    border-left: 2px solid var(--accent);
+    padding: .85rem 1.1rem;
+    border-radius: 0 3px 3px 0;
+  }
+  .callout p { color: var(--ink); font-size: .95rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: .87em;
+    background: var(--rule-soft);
+    padding: .1em .35em;
+    border-radius: 3px;
+    color: var(--ink);
+  }
+
+  /* ── table ──────────────────────────────────── */
+  .scroll { overflow-x: auto; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; min-width: 30rem; }
+  th, td { text-align: left; padding: .7rem .95rem; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  thead th {
+    font-family: var(--mono);
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 500;
+    border-bottom: 1px solid var(--rule);
+  }
+  td:first-child { color: var(--ink-soft); }
+  td:last-child { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  /* ── footer ─────────────────────────────────── */
+  footer {
+    margin-top: 2rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: .78rem;
+    color: var(--ink-faint);
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="eyebrow">HomeVault · com.tenman.msec</div>
+    <h1>Privacy Policy</h1>
+    <div class="meta">
+      <span><b>Effective</b> 19 August 2026</span>
+      <span><b>Updated</b> 25 October 2026</span>
+      <span><b>Contact</b> home.vault.help@gmail.com</span>
+    </div>
+  </header>
+
+  <div class="standfirst">
+    <p>HomeVault is an offline password and secrets manager. There is no HomeVault account, no HomeVault server, and no HomeVault database of users. <strong>We do not collect, receive, transmit, or store any of your personal data.</strong></p>
+    <p>Everything you save stays encrypted on your device. If — and only if — you switch on Google Drive sync, an encrypted copy is stored in <em>your own</em> Google Drive, encrypted on your device before it leaves it. We never see it, and neither can Google.</p>
+    <ul class="claims">
+      <li>No analytics, no advertising, no crash reporting, no trackers</li>
+      <li>No servers of ours ever receive your vault</li>
+      <li>Your master password never leaves your device, and cannot be recovered by anyone</li>
+    </ul>
+  </div>
+
+  <section>
+    <h2><span class="num">01</span><span>Who we are</span></h2>
+    <p>HomeVault is published by the developer identified on the app's Google Play listing. All privacy questions can be sent to <a href="mailto:home.vault.help@gmail.com">home.vault.help@gmail.com</a>.</p>
+    <p>For the purposes of data-protection law, you are the controller of your vault contents: they are held on your device and, optionally, in your own Google Drive account. We have no access to them at any time.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span><span>Information we collect</span></h2>
+    <div class="callout"><p><strong>None.</strong></p></div>
+    <p>HomeVault does not send your data anywhere we control. We operate no servers that receive app data. We do not ask for your name, email address, phone number, or any account registration. We have no ability to read, recover, reset, or hand over your vault.</p>
+    <p>The sections below describe data that is created and stored <strong>on your device</strong>, or sent directly to a third-party service <em>you</em> have chosen (Google Drive, Google Play).</p>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span><span>Data stored on your device</span></h2>
+    <p>All of the following stays on your device unless you explicitly export it or enable sync.</p>
+
+    <h3>Vault contents</h3>
+    <p>The records you create — titles, usernames, passwords, card details, notes, keywords, photos, and file attachments — are stored in an encrypted database file in the app's private storage.</p>
+    <ul class="body-list">
+      <li>Every record is stored as a single blob encrypted with XChaCha20-Poly1305 authenticated encryption.</li>
+      <li>The encryption key is protected by a key derived from your master password using Argon2. Your master password is never stored anywhere, in any form, and never leaves your device.</li>
+      <li>Only the record you are currently viewing is decrypted, and only in memory.</li>
+      <li>So that search works, record <strong>titles</strong> and <strong>keywords</strong> are held in an in-memory index while the vault is unlocked. Everything else — all values, notes, images and attachments — is only ever decrypted for a single record on demand.</li>
+      <li>When the vault locks, the key is wiped from memory.</li>
+    </ul>
+    <div class="callout"><p>We cannot recover your master password or your data if you forget it. There is no reset link, no recovery email, and no backdoor — that is the point of the design.</p></div>
+
+    <h3>Photos and camera</h3>
+    <p>If you attach a photo to a record, it is encrypted and stored in the vault exactly like every other field. The camera permission is used only at the moment you take a photo for a record. Photos chosen from your gallery go through the Android system photo picker, which grants access to the single item you pick. No photo, image, or attachment is uploaded anywhere except into your own encrypted vault (and, with sync enabled, your own Drive copy of it).</p>
+
+    <h3>Settings and security material</h3>
+    <p>The app stores locally: your app preferences, the wrapped (encrypted) database key and its salt, an optional biometric-unlock key held in the Android Keystore, an optional edit PIN, and — if you use Drive sync — the Google account email address you selected and an OAuth access token for that account. These are on your device only.</p>
+
+    <h3>Vault event log</h3>
+    <p>A local audit trail records that certain events happened: vault created, opened, renamed, synced, backed up, restored, password or PIN changed, sync interval changed, Premium subscription started or ended. Each entry holds an event type and a timestamp, plus, where they apply: the vault name (and the previous name when a vault is renamed), a count, the Google account used for a Google Drive operation, and a brief failure reason when an operation fails. It never records field values, titles, keywords, app packages, or website addresses. It stays on your device and can be cleared by you.</p>
+
+    <h3>Diagnostic log — opt-in, off by default</h3>
+    <p>If you turn on diagnostics in Settings to troubleshoot a problem, the app records technical event codes, counters, timings and true/false flags in memory for a limited session; it stops automatically after 10 minutes or when you leave the app. So that a problem can actually be diagnosed, entries can also include: the vault name, the Google account used for Drive sync, the app package or website domain involved when autofill is used, and failure details (an error type and message, or the HTTP status and error response returned by Google's servers).</p>
+    <p>By design the app never writes your vault content (titles, keywords, field values, notes, images), passwords or PINs, encryption keys, or Google access tokens into this log. Nothing is written to disk unless <em>you</em> tap Export, which creates a file you can then choose to share — for example by emailing it to us for support. Because an exported file can contain the items listed above, look it over before you send it. If you send us such a file, we use it only to diagnose your issue and delete it when the issue is closed.</p>
+
+    <h3>Device name and integrity checks</h3>
+    <p>The device's name (for example "Jo's Pixel", or the manufacturer and model) is recorded inside records so you can see which device last changed an entry; it is stored encrypted with the record.</p>
+    <p>To protect your secrets, HomeVault checks whether the device appears to be rooted or otherwise compromised, by reading system properties and by checking whether known root-manager apps are installed. It also checks that the app itself has not been modified or re-signed, and that no debugger is attached to it. These checks run entirely on-device and their results are not transmitted anywhere.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">04</span><span>Google Drive sync (optional)</span></h2>
+    <p>Drive sync is <strong>off by default</strong> and only runs if you enable it and sign in with a Google account you choose.</p>
+    <ul class="body-list">
+      <li><strong>What is uploaded:</strong> a single vault bundle file, plus your images and attachments contained within it. The bundle is compressed and encrypted <em>on your device</em> with your vault key before upload. Google stores an opaque encrypted blob it cannot read, and neither can we.</li>
+      <li><strong>Where it goes:</strong> a folder named <code>HomeVault</code> inside <em>your own</em> Google Drive. It is not shared with us, or with anyone you do not share it with yourself.</li>
+      <li><strong>What access we request:</strong> the <code>drive.file</code> scope only. This is the most restrictive Drive permission available: the app can see and manage only the files it created itself, and has no visibility into the rest of your Drive.</li>
+      <li><strong>What we receive:</strong> nothing. Your data goes from your device to your Google account. No copy passes through, or is retained by, any infrastructure of ours.</li>
+      <li><strong>Metadata:</strong> the app stores a "last updated" timestamp property on the file so it can check cheaply whether another device has made changes.</li>
+      <li><strong>Your Google account email</strong> is stored locally so the app remembers which account to sync with.</li>
+    </ul>
+    <p>Google's handling of files in your Drive is governed by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+
+    <h3>Limited Use disclosure</h3>
+    <p>HomeVault's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. Data obtained through Google APIs is used solely to provide the vault-sync feature you enabled; it is not sold, not transferred to third parties except as required to provide that feature, not used for advertising, and not read by humans.</p>
+
+    <h3>Turning it off</h3>
+    <p>You can disconnect sync in the app's settings at any time, revoke HomeVault's access to your Google account at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>, and delete the vault file from your Drive.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">05</span><span>Local backups</span></h2>
+    <p>You can export your vault to a single encrypted file and store it wherever you like. The file is encrypted with your master password — anyone who obtains the file without the password cannot read it. Once exported, the file is under your control and this policy no longer governs where you keep it. Restoring requires the master password that protected it.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">06</span><span>Autofill (optional)</span></h2>
+    <p>If you enable HomeVault as your Android autofill service, the app receives details of the form being filled in another app or browser in order to offer matching logins. This matching happens entirely on your device, only while the vault is unlocked, and nothing is filled without your explicit selection. The identity of the apps and websites you visit is not logged, stored, or transmitted by default. The one exception is the opt-in diagnostic log described in section 03: while diagnostics is switched on, it can record the app package or website domain of an autofill request, in memory only unless you export it. If you choose to save a new login from an autofill prompt, the site address and username are stored in your encrypted vault like any other record.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">07</span><span>Notifications and background operations</span></h2>
+    <p>Backups, restores, and syncs run as an Android foreground service so they finish even if you leave the app, which requires a visible notification. Those notifications carry only status words such as "in progress", "done", or "failed" — never vault names, record contents, or account details.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">08</span><span>Purchases and subscriptions</span></h2>
+    <p>HomeVault is free to use with no time limit: a vault of up to 15 records with every security feature, including autofill and biometric unlock. There is no trial period. An optional yearly subscription (Premium) unlocks unlimited records, local backup and restore, and Google Drive sync. The subscription is sold through Google Play Billing. <strong>All payment processing is handled by Google Play.</strong> We never see or store your payment card, billing address, or Google account details. The app checks your purchase status through Google Play's billing service and stores the resulting entitlement locally on the device. Your purchase history is governed by Google's own terms and privacy policy.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">09</span><span>Data sharing</span></h2>
+    <p>We do not sell, rent, trade, or share your data — because we do not have it.</p>
+    <p>No advertising networks, analytics providers, crash reporting services, or third-party trackers are integrated into HomeVault. The only external services the app can contact are Google Drive (only if you enable sync, and only your own account) and Google Play Billing (only for purchases). The app makes no other network connections.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">10</span><span>Data retention and deletion</span></h2>
+    <ul class="body-list">
+      <li><strong>On your device:</strong> your data is retained until you delete it. Deleting a record marks it as deleted so the deletion can propagate to your other devices, and the record is permanently erased after 45 days. Uninstalling the app removes the vault database and all app data from the device.</li>
+      <li><strong>In your Drive:</strong> the encrypted bundle stays until you delete it from your Drive.</li>
+      <li><strong>On our systems:</strong> nothing, because we hold nothing.</li>
+    </ul>
+    <p>To delete everything: delete the vault in the app or uninstall HomeVault, delete the <code>HomeVault</code> folder from your Google Drive, revoke the app's Google account permission, and delete any backup files you exported.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">11</span><span>Security</span></h2>
+    <ul class="body-list">
+      <li>Authenticated encryption (XChaCha20-Poly1305) for all data at rest.</li>
+      <li>Argon2 password-based key derivation with a random per-vault salt.</li>
+      <li>Optional biometric unlock backed by hardware-protected Android Keystore keys.</li>
+      <li>The vault locks when the app leaves the screen; process death, reboot, or swiping the app away always forces a full unlock.</li>
+      <li>Screenshots and screen recording are blocked by default.</li>
+      <li>Refusal to run on devices detected as rooted or compromised.</li>
+      <li>An optional separate edit PIN gating changes and deletions.</li>
+    </ul>
+    <p>No system is perfectly secure, and the security of your vault depends on the strength of your master password and the integrity of your device.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">12</span><span>Children</span></h2>
+    <p>HomeVault is not directed at children and is not intended for use by anyone under 13 (or the equivalent minimum age in your country). We do not knowingly collect data from children — we do not knowingly collect data from anyone.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">13</span><span>Your rights</span></h2>
+    <p>Data-protection laws such as the GDPR and the CCPA give you rights to access, correct, export, and delete your personal data. Because your data never reaches us, you exercise these rights directly: your vault is on your device, readable and editable in the app, exportable as a backup file, and deletable at any time. We sell no personal information and have none to disclose. If you believe we hold information about you, write to <a href="mailto:home.vault.help@gmail.com">home.vault.help@gmail.com</a> and we will respond.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">14</span><span>International transfers</span></h2>
+    <p>We transfer no data internationally, since we receive none. If you enable Drive sync, your encrypted file is stored on Google's infrastructure under Google's terms.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">15</span><span>Changes to this policy</span></h2>
+    <p>We may update this policy — for example when a new feature changes what the app does. The updated version will be posted at this address with a new "Updated" date, and material changes will be noted in the app's release notes. Continuing to use HomeVault after an update means you accept the revised policy.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">16</span><span>Contact</span></h2>
+    <p>Questions, requests, or concerns: <a href="mailto:home.vault.help@gmail.com">home.vault.help@gmail.com</a></p>
+  </section>
+
+  <section>
+    <h2><span class="num">A</span><span>Appendix: Play Console Data safety answers</span></h2>
+    <p>Provided to make the Data safety declaration straightforward. Verify against the current form before submitting.</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th scope="col">Question</th><th scope="col">Answer</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Does your app collect or share any of the required user data types?</td><td>No</td></tr>
+          <tr><td>Is all user data encrypted in transit?</td><td>Yes — HTTPS, plus end-to-end encryption of the bundle before upload</td></tr>
+          <tr><td>Do you provide a way for users to request that their data be deleted?</td><td>Yes — in-app deletion and uninstall; no server-side data exists</td></tr>
+          <tr><td>Data types collected</td><td>None</td></tr>
+          <tr><td>Data types shared</td><td>None</td></tr>
+          <tr><td>Data collected for advertising or analytics</td><td>None</td></tr>
+          <tr><td>Third-party SDKs receiving user data</td><td>None — Google Play Billing and Google Sign-In are used only for purchases and for access to the user's own Drive</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>"Collect" in the Play Console sense means data transmitted off the device to the developer or a third party. HomeVault transmits vault data only to the user's own Google Drive, at the user's instruction, end-to-end encrypted — which Play treats as user-initiated transfer to a service of the user's choosing, not collection by the developer.</p>
+  </section>
+
+  <footer>
+    <span>HomeVault · com.tenman.msec</span>
+    <span>Version 4 · This policy applies to all versions of the app currently distributed on Google Play.</span>
+  </footer>
+
+</div>

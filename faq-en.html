@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Answers about HomeVault, the private offline password and secrets vault: setup, security, backup, Google Drive sync, family sharing and Premium.">
+<title>HomeVault FAQ</title>
+<style>
+  :root {
+    --ground: #f6f7f9;
+    --surface: #ffffff;
+    --ink: #16191f;
+    --ink-soft: #4a515e;
+    --ink-faint: #7c8494;
+    --rule: #dfe3ea;
+    --rule-soft: #ebeef3;
+    --accent: #8a6321;
+    --accent-soft: #f2ead9;
+    --steel: #33445e;
+    --shadow: 0 1px 2px rgba(22, 25, 31, .05), 0 8px 24px -16px rgba(22, 25, 31, .25);
+
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #101318;
+      --surface: #171b22;
+      --ink: #e7eaf0;
+      --ink-soft: #a8b0be;
+      --ink-faint: #79818f;
+      --rule: #2a3039;
+      --rule-soft: #21262e;
+      --accent: #d0a154;
+      --accent-soft: #2b2415;
+      --steel: #9db2d4;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .8);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #101318;
+    --surface: #171b22;
+    --ink: #e7eaf0;
+    --ink-soft: #a8b0be;
+    --ink-faint: #79818f;
+    --rule: #2a3039;
+    --rule-soft: #21262e;
+    --accent: #d0a154;
+    --accent-soft: #2b2415;
+    --steel: #9db2d4;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .8);
+  }
+
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 45rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 6vw, 4.5rem) clamp(1.1rem, 5vw, 2rem) 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+  }
+
+  /* ── masthead ───────────────────────────────── */
+  .masthead { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.1rem, 6vw, 3rem);
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -.015em;
+    text-wrap: balance;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem 1.6rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: .78rem;
+    color: var(--ink-faint);
+  }
+  .meta b { color: var(--ink-soft); font-weight: 500; }
+
+  /* ── standfirst ─────────────────────────────── */
+  .standfirst {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    padding: clamp(1.25rem, 4vw, 1.85rem);
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+  }
+  .standfirst p { font-size: 1.02rem; color: var(--ink-soft); }
+  .standfirst p:first-of-type {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .standfirst strong { color: var(--ink); font-weight: 600; }
+
+  .claims {
+    list-style: none;
+    padding: 1rem 0 0;
+    display: grid;
+    gap: .5rem;
+    margin-top: .35rem;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .claims li {
+    display: grid;
+    grid-template-columns: 1.35rem 1fr;
+    align-items: baseline;
+    gap: .55rem;
+    font-size: .93rem;
+    color: var(--ink-soft);
+  }
+  .claims li::before { content: "—"; font-family: var(--mono); color: var(--accent); }
+
+  /* ── jump nav ───────────────────────────────── */
+  .jump {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+  .jump a {
+    display: inline-block;
+    padding: .35rem .8rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--surface);
+    font-family: var(--mono);
+    font-size: .74rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+  .jump a:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── sections ───────────────────────────────── */
+  section { display: flex; flex-direction: column; gap: .85rem; scroll-margin-top: 1.5rem; }
+
+  h2 {
+    display: grid;
+    grid-template-columns: 2.4rem 1fr;
+    align-items: baseline;
+    gap: .5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--serif);
+    font-size: 1.42rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -.01em;
+    text-wrap: balance;
+  }
+  h2 .num {
+    font-family: var(--mono);
+    font-size: .78rem;
+    font-weight: 500;
+    letter-spacing: .04em;
+    color: var(--accent);
+    transform: translateY(-.15em);
+  }
+
+  p { color: var(--ink-soft); }
+  section > p, section > .qa, section > .callout, section > .cards { margin-left: 2.9rem; }
+  @media (max-width: 34rem) {
+    h2 { grid-template-columns: 1fr; gap: .1rem; }
+    h2 .num { transform: none; }
+    section > p, section > .qa, section > .callout, section > .cards { margin-left: 0; }
+  }
+
+  strong { color: var(--ink); font-weight: 600; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .18em;
+  }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  code {
+    font-family: var(--mono);
+    font-size: .87em;
+    background: var(--rule-soft);
+    padding: .1em .35em;
+    border-radius: 3px;
+    color: var(--ink);
+  }
+
+  .callout {
+    background: var(--accent-soft);
+    border-left: 2px solid var(--accent);
+    padding: .85rem 1.1rem;
+    border-radius: 0 3px 3px 0;
+  }
+  .callout p { color: var(--ink); font-size: .95rem; }
+
+  /* ── feature cards ──────────────────────────── */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .85rem; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1rem 1.1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+  }
+  .card h3 {
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--steel);
+  }
+  .card p { font-size: .93rem; }
+
+  /* ── Q&A accordion ──────────────────────────── */
+  .qa {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .qa details + details { border-top: 1px solid var(--rule-soft); }
+  summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 1rem;
+    padding: .95rem 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    font-family: var(--mono);
+    font-size: 1.1rem;
+    color: var(--accent);
+    transition: transform .15s ease;
+  }
+  details[open] > summary::after { content: "–"; }
+  summary:hover { background: var(--rule-soft); }
+  .answer { padding: 0 1.1rem 1.1rem; }
+  .answer p { font-size: .97rem; }
+  .answer p + p, .answer p + ol, .answer ol + p { margin-top: .7rem; }
+  .answer ol { padding-left: 1.4rem; color: var(--ink-soft); font-size: .97rem; display: flex; flex-direction: column; gap: .3rem; }
+  .answer ol li::marker { color: var(--accent); font-family: var(--mono); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    summary::after { transition: none; }
+  }
+
+  /* ── footer ─────────────────────────────────── */
+  footer {
+    margin-top: 2rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: .78rem;
+    color: var(--ink-faint);
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <div class="eyebrow">HomeVault · com.tenman.msec</div>
+    <h1>Frequently asked questions</h1>
+    <div class="meta">
+      <span><b>App</b> HomeVault for Android 14+</span>
+      <span><b>Support</b> <a href="mailto:home.vault.help@gmail.com">home.vault.help@gmail.com</a></span>
+    </div>
+  </header>
+
+  <div class="standfirst">
+    <p>HomeVault is a private, offline-first password and secrets manager. Everything you save is encrypted on your device with a master password only you know — no account to create, no company server that can ever see your data.</p>
+    <p>Most password managers store your data on their servers and ask you to trust them. HomeVault is <strong>zero-knowledge</strong>: your vault lives on your phone, encrypted at rest, and optional cloud sync is end-to-end encrypted — Google (and we) only ever see an unreadable blob.</p>
+    <ul class="claims">
+      <li>No sign-up, no email, no tracking</li>
+      <li>Install, choose a master password, start saving</li>
+      <li>Free with no time limit; Premium is optional</li>
+    </ul>
+  </div>
+
+  <ul class="jump" aria-label="Jump to a topic">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#start">Getting started</a></li>
+    <li><a href="#security">Security</a></li>
+    <li><a href="#autofill">Autofill</a></li>
+    <li><a href="#plans">Free &amp; Premium</a></li>
+    <li><a href="#vaults">Vaults &amp; sync</a></li>
+  </ul>
+
+  <section id="overview">
+    <h2><span class="num">01</span><span>What HomeVault does</span></h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Store any secret</h3>
+        <p>Passwords, cards, secure notes, Wi-Fi codes, software keys, documents and images — all encrypted. Add custom fields for anything else.</p>
+      </div>
+      <div class="card">
+        <h3>Autofill</h3>
+        <p>Plugs into Android's Autofill service to fill usernames and passwords into websites and apps, and can offer to save new logins as you create them.</p>
+      </div>
+      <div class="card">
+        <h3>Backup &amp; sync</h3>
+        <p>Export your vault as one encrypted backup file, or keep several devices in step through your own Google Drive — end-to-end encrypted, merged record by record.</p>
+      </div>
+      <div class="card">
+        <h3>Security you can trust</h3>
+        <p>XChaCha20-Poly1305 encryption with Argon2 key derivation, screenshot and app-switcher protection, biometric unlock, and auto-lock.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="start">
+    <h2><span class="num">02</span><span>Getting started</span></h2>
+    <div class="qa">
+      <details open>
+        <summary>Do I need to sign up for anything?</summary>
+        <div class="answer"><p>No. No account, email, or third-party service is required to use the app.</p></div>
+      </details>
+      <details open>
+        <summary>What do I need to start?</summary>
+        <div class="answer"><p>Just the app and a master password you choose. Cloud sync is optional. Android 14 or newer is required. You can optionally add fingerprint or face unlock for faster access.</p></div>
+      </details>
+      <details open>
+        <summary>What can I store?</summary>
+        <div class="answer"><p>Logins, cards, secure notes, Wi-Fi passwords, license keys, documents and images, plus custom fields.</p></div>
+      </details>
+      <details open>
+        <summary>Does it support other languages?</summary>
+        <div class="answer"><p>Yes — English, German, Spanish, French, Italian, Japanese, Korean, and Chinese.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <section id="security">
+    <h2><span class="num">03</span><span>Security &amp; recovery</span></h2>
+    <div class="qa">
+      <details open>
+        <summary>How secure is it if my phone is lost or stolen?</summary>
+        <div class="answer"><p>Your vault is encrypted at rest and locked behind your master password (and biometrics). Nobody can read your secrets without that password, even someone holding the device.</p></div>
+      </details>
+      <details open>
+        <summary>What if my Google account is compromised?</summary>
+        <div class="answer"><p>Cloud sync is end-to-end encrypted. Anyone reaching your Drive finds only an encrypted file they can't open without your master password, which never leaves your device.</p></div>
+      </details>
+      <details open>
+        <summary>How limited and safe is HomeVault's access to my Google Drive?</summary>
+        <div class="answer">
+          <p>Very limited. HomeVault requests the narrowest Google Drive permission available, called <code>drive.file</code>. It can see and manage only the files and folders HomeVault itself created — never your documents, photos, or anything else in your Drive.</p>
+          <p>The files it does create are end-to-end encrypted on your phone before they are uploaded, so Google only stores an unreadable blob. You can disconnect Google Drive in the app at any time, and revoke the permission at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+        </div>
+      </details>
+      <details open>
+        <summary>I forgot my master password — can it be recovered?</summary>
+        <div class="answer">
+          <p><strong>No.</strong> If you forget your master password, there is no way to recover your vault. HomeVault is zero-knowledge: there is no backdoor, no reset link and no recovery email. This is what keeps your data private, so choose a password you'll remember.</p>
+        </div>
+      </details>
+    </div>
+    <div class="callout"><p><strong>Warning: if you forget your master password, your vault is lost for good</strong> — we can't recover it, and neither can Google. Choose a password you will remember, and keep a backup file somewhere safe.</p></div>
+  </section>
+
+  <section id="autofill">
+    <h2><span class="num">04</span><span>Autofill</span></h2>
+    <div class="qa">
+      <details open>
+        <summary>How does Autofill decide which login to offer?</summary>
+        <div class="answer"><p>The Android Autofill service matches against the <strong>Title</strong> and <strong>Keywords</strong> fields of your <strong>Login</strong> items. For a login to show up on a website, make sure its Title or Keywords contain the site's domain, for example <code>example.com</code>.</p></div>
+      </details>
+      <details open>
+        <summary>How do I use Autofill in Chrome on Android?</summary>
+        <div class="answer"><p>First choose HomeVault as your Autofill service in Android settings. Then, in Chrome, open <strong>Settings</strong> and turn on <strong>Autofill using another service</strong>. Without this, Chrome keeps using its own password manager instead of HomeVault.</p></div>
+      </details>
+      <details open>
+        <summary>The Autofill suggestion isn't showing up. What can I do?</summary>
+        <div class="answer"><p>Tap out of the username or password field and tap back into it again to re-focus it, or refresh the page. The suggestion usually appears after that.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <section id="plans">
+    <h2><span class="num">05</span><span>Free &amp; Premium</span></h2>
+    <div class="qa">
+      <details open>
+        <summary>Are there any limits?</summary>
+        <div class="answer"><p>The free version never expires: up to 15 items, with full encryption, autofill and biometric unlock. A Premium subscription unlocks unlimited items, encrypted Google Drive sync, and local backups. Your existing items always stay readable and editable, even if a subscription lapses.</p></div>
+      </details>
+    </div>
+    <p>There is no trial and no account. Premium is a yearly subscription billed through Google Play.</p>
+  </section>
+
+  <section id="vaults">
+    <h2><span class="num">06</span><span>Vaults &amp; sync</span></h2>
+    <div class="qa">
+      <details open>
+        <summary>Can I share a vault with family?</summary>
+        <div class="answer"><p>Yes — create a dedicated vault, sync it to a shared Google account, and share its master password with trusted family members. Everyone who opens it sees the same encrypted data. To keep it safe, set an optional edit PIN: it gates adding, editing, and deleting, preventing accidental changes and keeping family members without the PIN to view-only access. The PIN travels with the vault, staying in effect on every synced device.</p></div>
+      </details>
+      <details open>
+        <summary>Multiple vaults (personal, work, family)?</summary>
+        <div class="answer"><p>Yes. Create and name multiple vaults; the device works with one at a time and you switch between them with <strong>Open Vault</strong>.</p></div>
+      </details>
+      <details open>
+        <summary>How do I switch to a vault on a different Google account?</summary>
+        <div class="answer">
+          <p>Yes, vaults on different Google accounts are supported. To switch:</p>
+          <ol>
+            <li>Go to <strong>Settings</strong> and tap <strong>Disconnect Cloud</strong> to sign out of the current Google Drive account.</li>
+            <li>Tap <strong>Open Vault</strong>, then enter the name of the vault folder in Google Drive and its password.</li>
+            <li>When asked to select a Google account, choose the one that holds that vault.</li>
+          </ol>
+          <p>After that, <strong>Sync with Cloud</strong> works with the vault tied to that account.</p>
+        </div>
+      </details>
+      <details open>
+        <summary>Local backup vs Google Drive sync?</summary>
+        <div class="answer"><p>Local backup keeps a private encrypted file on your device — fully offline, but only on that phone. Drive sync keeps an end-to-end-encrypted copy in the cloud, so you can restore or sync across devices. Both are encrypted; Drive adds cross-device convenience.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <span>Your secrets. Your device. Your keys.</span>
+    <span>Questions? <a href="mailto:home.vault.help@gmail.com">home.vault.help@gmail.com</a> · <a href="homevault-privacy.html">Privacy policy</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
